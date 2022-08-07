@@ -13,32 +13,32 @@ class ASCFilter(logging.Filter):
 
     converter = dt.datetime.fromtimestamp
 
-    def __init__(self, unit_id=None):
+    def __init__(self, unitid=None):
         super(ASCFilter, self).__init__()
-        self.unit_id = unit_id
+        self.unitid = unitid
 
     def filter(self, record):
         ct = self.converter(record.created)
         record.microsecs = ct.microsecond
-        record.unitid = self.unit_id
+        record.unitid = self.unitid
         return True
 
 
-def fill_logging_dict(level, log_path, unit_id):
+def fill_logging_dict(level, log_path, unitid):
     """
-    :param level: 'INFO', 'DEBUG', 'WARNING' or 'CRITICAL'
+    :param level: A string 'INFO', 'DEBUG', 'WARNING' or 'CRITICAL'
     :param log_path: path to log file
-    :param unit_id: The UnitId
+    :param unitid: The UnitId
     :return: A dict with the logging configuration.
     """
 
-    dict_cfg = {
+    dicti = {
         "version": 1,
         "disable_existing_loggers": False,
         'filters': {
             'ascfilter': {
                 '()': ASCFilter,
-                'unitid': unit_id
+                'unitid': unitid
             }
         },
         "formatters": {
@@ -68,4 +68,4 @@ def fill_logging_dict(level, log_path, unit_id):
         }
     }
 
-    return dict_cfg
+    return dicti
