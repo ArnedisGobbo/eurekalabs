@@ -1,6 +1,3 @@
-import uuid
-
-
 class StockModel(object):
     def __init__(self, open_price, higher_price, lower_price, variation):
         self.open_price = open_price

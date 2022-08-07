@@ -12,7 +12,7 @@ from application.exceptions import InvalidLogPath
 logger = logging.getLogger(__name__)
 
 
-def log_config(log_path, log_enabled, log_level, unitid):
+def log_config(log_path, log_enabled, log_level, unit_id):
     log_dir = os.path.dirname(log_path)
     log_dir = '.' if log_dir == '' else log_dir
     if not log_enabled:
@@ -20,9 +20,9 @@ def log_config(log_path, log_enabled, log_level, unitid):
     else:
         if not os.path.isdir(log_dir) \
                 or not os.access(log_dir, os.W_OK):
-            raise InvalidLogPath(os.path.dirname(log_path))
-        dicti = fill_logging_dict(log_level, log_path, unitid)
-        logging.config.dictConfig(dicti)
+            raise InvalidLogPath(os.path.dirname(log_path), msg="invalid log file")
+        dict_cfg = fill_logging_dict(log_level, log_path, unit_id)
+        logging.config.dictConfig(dict_cfg)
 
 
 def log_initial(log_file_path,

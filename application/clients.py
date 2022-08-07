@@ -32,5 +32,3 @@ class RestClient:
     def delete_request(self, query_path, json=None):
         url = self.build_url(query_path)
         return self.session.delete(url, json=json, params=None, timeout=self.timeout)
-
-

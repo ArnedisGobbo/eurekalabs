@@ -14,7 +14,8 @@ class InputErrorException(APIException):
 
 
 class InvalidLogPath(InputErrorException):
-    def __init__(self, log_path):
+    def __init__(self, log_path, msg):
+        super().__init__(msg)
         msg = ("The log directory '{}' doesn't exist, or you don't have "
                "permission over it").format(log_path)
         self.msg = msg
