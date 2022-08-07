@@ -18,12 +18,6 @@ api = Api(app)
 
 setup_log('DEBUG')
 
-
-@app.before_first_request
-def create_tables():
-    db.db.create_all()
-
-
 api.add_resource(UserRegister, '/register')
 api.add_resource(Stock, '/stock')
 
