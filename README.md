@@ -45,3 +45,4 @@ curl --location --request GET 'https://eurekalabs-api.herokuapp.com/stock?symbol
 - Github repo: https://github.com/ArnedisGobbo/eurekalabs.git
 - API throttling: 10 calls per minute
 - Logging files located in ./logs
+- Cache implemented for alphavantage upstream
