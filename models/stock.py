@@ -1,4 +1,3 @@
-from db import db
 import uuid
 
 
@@ -14,5 +13,5 @@ class StockModel(object):
             'open price': self.open_price,
             'higher price': self.higher_price,
             'lower price': self.lower_price,
-            'variation between last 2 closing price values': self.variation
+            'variation': self.variation
         }

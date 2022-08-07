@@ -1,0 +1,6 @@
+Flask
+Flask-restful
+Flask-limiter
+Flask-SQLAlchemy
+requests-cache
+uwsgi
